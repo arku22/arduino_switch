@@ -22,7 +22,12 @@ There's numerous ways to solve this engineering problem. However, the route I ch
 ## The external device
 This section will simply go over the details of the device I am modifying and the existing features.
 
-I am working with a [mouse jiggler](https://www.amazon.com/Undetectable-Mover-Parts-Software-Automatically/dp/B08GPGZ4Z6/ref=sr_1_5?keywords=mouse+jiggers&qid=1687389928&sprefix=mouse+jigger%2Caps%2C141&sr=8-5) which is a usb 2.0 powered device. It's a relatively simple device with the following working parts:
+I am working with a [mouse jiggler](https://www.amazon.com/Undetectable-Mover-Parts-Software-Automatically/dp/B08GPGZ4Z6/ref=sr_1_5?keywords=mouse+jiggers&qid=1687389928&sprefix=mouse+jigger%2Caps%2C141&sr=8-5) which is a usb 2.0 powered device. 
+
+### Assembled Device
+<img src="assets/mouse_jiggler/mouse_jiggler.jpg" alt="mouse jiggler" width=250px height=300px>
+
+It's a relatively simple device with the following working parts:
 1. A male usb 2.0 type b to male usb type c cable
     * The cable has a built in touch actuated switch
 3. A usb type c powered micro-controller board
@@ -30,15 +35,12 @@ I am working with a [mouse jiggler](https://www.amazon.com/Undetectable-Mover-Pa
 5. Casing for components
 
 ### Cable
-<img src="assets/mouse_jiggler/usb_cable.jpg" alt="usb cable">
-<img src="assets/mouse_jiggler/inbuilt_switch_front.jpg" alt="switch front">
-<img src="assets/mouse_jiggler/inbuilt_switch_back.jpg" alt="switch back">
+<img src="assets/mouse_jiggler/usb_cable.jpg" alt="usb cable" width=250px height=300px>
+<img src="assets/mouse_jiggler/inbuilt_switch_front.jpg" alt="switch front" width=250px height=300px>
+<img src="assets/mouse_jiggler/inbuilt_switch_back.jpg" alt="switch back" width=300px height=230px>
 
 ### Motor
-<img src="assets/mouse_jiggler/jiggler_motor.jpg" alt="motor">
-
-### Assembled Device
-<img src="assets/mouse_jiggler/mouse_jiggler.jpg" alt="mouse jiggler">
+<img src="assets/mouse_jiggler/jiggler_motor.jpg" alt="motor" width=300px height=250px>
 
 ### Simplified device circuit
 <img src="">
