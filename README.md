@@ -95,7 +95,7 @@ Vin = 5v (power output from Arduino)
 Rb = (5 - 1.2) / 0.015
 Rb = 253.3 ohms
 
-So, to ensure saturation I need a resistor Rb of value <= 253.3 ohms. Again, I choose to forego using a resistor Rb here because I figure the current is already limited to 20 mA because of the Arduino. Also, once a transistor is saturated any further increase in base current will not have a significant impact. So, Rb = 0 ohms.
+So, to ensure saturation I need a resistor Rb of value <= 253.3 ohms. Again, I choose to forego using a resistor Rb here because I figure the current is already limited to 20 mA because of the Arduino. Also, once a transistor is saturated any further increase in base current, as long as within the limits of the transistor's maximum rating, should not have a significant impact on the switching operation. So I omit using a base resistor (Rb = 0 ohms).
 
 ### Prototype Build and Test
 
@@ -112,12 +112,23 @@ To build out the prototype, I used the following components:
 
 Also, I wrote a simple sketch for the Arduino which can be found [here](https://github.com/arku22/arduino_switch/blob/master/main/main.ino). The logic is depicted in the below flowchart:
 
-This is what the finished prototype looks like:
+The below is the schematic for the prototype.
 <img src="">
 
 I read the following values from my build:
-Vce sat = ___
-Ib = ___
+Vce sat (at idle) = 9.2 mV
+Vce sat (at full load) = 100 mV
+Ib = 70 mA
+Note: Here, "at idle" means when transistor was saturated (switched ON) but the motor of the mouse jiggler was not active. "At full load" therefore means when the transistor was saturated and the motor of the mouse jiggler was active. The mouse jiggler motor does not operate continuosly, rather in fixed intervals - the interval time is flashed onto the onboard microcontroller and therefore I have no control on it.
+
+Of concern here was the amount of base current being supplied by my Arduino Uno's digital pin. The 70mA through the circuit is beyond what the arduino is capable - from what I can find on the internet, 20mA is the max continuous current and 40mA the max if current is not continuous! Even with such a high current draw, my arduino is functioning fine. I'm not sure why it is working okay even with such a high current draw but my assumption is the built in fail safe circuitry of the arduino uno helps and also my Arduino is a knock off product and may have a higher output current capability than the official Arduino Uno. 
+
+Nevertheless, I decide to add a base resistor to my circuit to bring down the base current value. As per my calculations I only need a minimum of 15 mA to saturate my transistor.
+
+I add in a base resistor, Rb, of value 220 Ohms and again read the base current value. This time Ib = 18 mA. However, my mouse jiggler device turns on and off rapidly. I play around with different values of base resistors and find that as the base resistor value increases above 220 ohms the external device still turns on and off but the speed of on and off decreases as the base resistance increases. On the contrary as I decrease the value of Rb sufficiently, in my case down to about 100 Ohms, the device and setup works as expected. My guess is that due to manufacturing imperfections in the resistor value, transistor, unaccounted resistances (contact resistance etc.) the transistor goes below the edge of saturation into the active state at a sufficiently high value of base resistance, which causes the unexpected behaviour of the external device. For the base resistance of 100 Ohms, I read a base current of 30 mA. Eventhough this is still above the 20 mA max, its well below the 70 mA I was reading earlier and my circuit seems to work as expected.
+
+So after having run my tests, below is the final circuit I will be soldering to produce a more permanent solution.
+<img src="">
 
 ## Final Build
 
