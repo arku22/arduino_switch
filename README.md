@@ -30,19 +30,15 @@ I am working with a [mouse jiggler](https://www.amazon.com/Undetectable-Mover-Pa
 5. Casing for components
 
 ### Cable
-<img src="">
-
-### Built-in micro-controller board
-<img src="">
+<img src="assets/mouse_jiggler/usb_cable.jpg" alt="usb cable">
+<img src="assets/mouse_jiggler/inbuilt_switch_front.jpg" alt="switch front">
+<img src="assets/mouse_jiggler/inbuilt_switch_back.jpg" alt="switch back">
 
 ### Motor
-<img src="">
-
-### Casing
-<img src="">
+<img src="assets/mouse_jiggler/jiggler_motor.jpg" alt="motor">
 
 ### Assembled Device
-<img src="">
+<img src="assets/mouse_jiggler/mouse_jiggler.jpg" alt="mouse jiggler">
 
 ### Simplified device circuit
 <img src="">
